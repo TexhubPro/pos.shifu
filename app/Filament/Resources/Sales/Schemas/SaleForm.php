@@ -6,7 +6,7 @@ use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\Repeater;
-use Filament\Forms\Components\Section;
+use Filament\Schemas\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
@@ -20,7 +20,7 @@ class SaleForm
         return $schema
             ->components([
                 Hidden::make('user_id')
-                    ->default(fn () => auth()->id()),
+                    ->default(fn() => auth()->id()),
                 Section::make('Продажа')
                     ->columns(2)
                     ->schema([
@@ -82,7 +82,7 @@ class SaleForm
                             ->reactive(),
                         DatePicker::make('due_at')
                             ->label('Срок оплаты')
-                            ->visible(fn ($get) => (bool) $get('on_credit')),
+                            ->visible(fn($get) => (bool) $get('on_credit')),
                     ]),
                 Section::make('Позиции')
                     ->schema([
