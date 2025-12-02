@@ -73,8 +73,8 @@ class Sale extends Model
     {
         return $this->hasMany(ClientDebtPayment::class);
     }
-    public function product(): BelongsTo
+    public function product(): HasMany
     {
-        return $this->belongsTo(Product::class);
+        return $this->hasMany(Product::class);
     }
 }
